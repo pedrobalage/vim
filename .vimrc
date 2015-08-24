@@ -49,13 +49,29 @@ set foldmethod=indent       " allow us to fold on indents
 set foldlevel=99            " don't fold by default
 
 
+" ==========================================================
+" Window splits
+" ==========================================================
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
 
 
+" ==========================================================
+" Task list
+" ==========================================================
+map <leader>td <Plug>TaskList
 
-
-
+" ==========================================================
+" Pyflakes
+" ==========================================================
+let g:pyflakes_use_quickfix = 0
 
 nnoremap <F3> :NERDTreeToggle<cr>
+" ==========================================================
+" Window splits
+" ==========================================================
 
 " Python mode setting
 let g:pymode_lint = 0
@@ -80,12 +96,12 @@ let g:slime_paste_file = "$HOME/.slime_paste"
 cmap W! w !sudo tee % >/dev/null
 cmap w!! w !sudo tee % >/dev/null
 
-" ctrl-jklm  changes to that split
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
-
+" ctrl-jklm  changes to that spli
+" Window Splits
+" Vertical Split : Ctrl+w + v
+" Horizontal Split: Ctrl+w + s
+" Close current windows: Ctrl+w + q
+"
 "tabs
 noremap <C-H> <Esc>:tabp<CR>
 noremap <C-L> <Esc>:tabn<CR>
