@@ -20,12 +20,14 @@ set nostartofline           " Avoid moving cursor to BOL when jumping around
 set virtualedit=block       " Let cursor move past the last char in <C-v> mode
 set scrolloff=3             " Keep 3 context lines above and below the cursor
 set backspace=2             " Allow backspacing over autoindent, EOL, and BOL
+set noerrorbells
+set vb t_vb=
 
 " ==========================================================
 " Tabs, Spaces and Identation
 " ==========================================================
 set expandtab               " Use spaces, not tabs, for autoindent/tab key.
-set tabstop=8               " <tab> inserts 4 spaces 
+set tabstop=4               " <tab> inserts 4 spaces 
 set shiftwidth=4            " but an indent level is 2 spaces wide.
 set softtabstop=4           " <BS> over an autoindent deletes both spaces.
 set shiftround              " rounds indent to a multiple of shiftwidth
@@ -48,15 +50,36 @@ set showmatch               " Briefly jump to a paren once it's balanced
 set foldmethod=indent       " allow us to fold on indents
 set foldlevel=99            " don't fold by default
 
+" ==========================================================
+" Sudo write
+" ==========================================================
+cmap W! w !sudo tee % >/dev/null
+cmap w!! w !sudo tee % >/dev/null
+
 
 " ==========================================================
-" Window splits
+" Windows and tabs
 " ==========================================================
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+noremap <C-H> <Esc>:tabp<CR>
+noremap <C-L> <Esc>:tabn<CR>
+
+" ==========================================================
+" Markdown
+" ==========================================================
+
+
+" ==========================================================
+" NERDTree
+" ==========================================================
+map <C-n> :NERDTreeToggle<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " ==========================================================
 " Task list
@@ -68,47 +91,13 @@ map <leader>td <Plug>TaskList
 " ==========================================================
 let g:pyflakes_use_quickfix = 0
 
-nnoremap <F3> :NERDTreeToggle<cr>
 " ==========================================================
-" Window splits
+" Vim-slime
 " ==========================================================
-
-" Python mode setting
-let g:pymode_lint = 0
-let g:pymode_lint_on_write = 0
-let g:pymode_warnings = 1
-let g:pymode_trim_whitespaces = 1
-let g:pymode_options_colorcolumn = 0
-let g:pymode_indent = 1
-let g:pymode_folding = 1
-let g:pymode_rope = 0
-
-" vim-slime settings
 let g:slime_python_ipython = 1
 let g:slime_target = "screen"
 let g:slime_paste_file = "$HOME/.slime_paste"
 
-" Folding
-
-
-" sudo write this
-" for when we forget to use sudo to open/edit a file
-cmap W! w !sudo tee % >/dev/null
-cmap w!! w !sudo tee % >/dev/null
-
-" ctrl-jklm  changes to that spli
-" Window Splits
-" Vertical Split : Ctrl+w + v
-" Horizontal Split: Ctrl+w + s
-" Close current windows: Ctrl+w + q
-"
-"tabs
-noremap <C-H> <Esc>:tabp<CR>
-noremap <C-L> <Esc>:tabn<CR>
-
-" don't bell or blink
-set noerrorbells
-set vb t_vb=
 
 
 
