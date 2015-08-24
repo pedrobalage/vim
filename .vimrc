@@ -26,13 +26,12 @@ set vb t_vb=
 " ==========================================================
 " Tabs, Spaces and Identation
 " ==========================================================
-set expandtab               " Use spaces, not tabs, for autoindent/tab key.
-set tabstop=4               " <tab> inserts 4 spaces 
-set shiftwidth=4            " but an indent level is 2 spaces wide.
-set softtabstop=4           " <BS> over an autoindent deletes both spaces.
-set shiftround              " rounds indent to a multiple of shiftwidth
-set autoindent              " always set autoindenting on
-set nosmartindent           " dont use smart indent 
+set shiftwidth=4          " operation >> indents 4 columns; << unindents 4 columns
+set tabstop=4             " a hard TAB displays as 4 columns
+set expandtab             " insert spaces when hitting TABs
+set softtabstop=4         " insert/delete 4 spaces when hitting a TAB/BACKSPACE
+set shiftround            " round indent to multiple of 'shiftwidth'
+set autoindent            " align the new line indent with the previous line
 
 " ==========================================================
 " Searching and Patterns
@@ -49,6 +48,12 @@ set showmatch               " Briefly jump to a paren once it's balanced
 " ==========================================================
 set foldmethod=indent       " allow us to fold on indents
 set foldlevel=99            " don't fold by default
+
+
+" ==========================================================
+" Python things
+" ==========================================================
+set textwidth=79  " lines longer than 79 columns will be broken
 
 " ==========================================================
 " Sudo write
@@ -94,6 +99,20 @@ let g:slime_python_ipython = 1
 let g:slime_target = "screen"
 let g:slime_paste_file = "$HOME/.slime_paste"
 
+
+" ==========================================================
+" VirtualEnv
+" ==========================================================
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
 
 
 
