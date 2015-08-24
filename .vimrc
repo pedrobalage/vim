@@ -76,10 +76,16 @@ noremap <C-L> <Esc>:tabn<CR>
 " ==========================================================
 " NERDTree
 " ==========================================================
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeTabsToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" ==========================================================
+" jedi-vim and supertab
+" ==========================================================
+let g:SuperTabDefaultCompletionType = "context"
+let g:jedi#popup_on_dot = 0
 
 " ==========================================================
 " Task list
