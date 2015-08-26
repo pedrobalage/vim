@@ -88,9 +88,9 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:jedi#popup_on_dot = 0
 
 " ==========================================================
-" Pyflakes
+" Syntastic
 " ==========================================================
-let g:pyflakes_use_quickfix = 0
+let g:syntastic_python_flake8_args = "--ignore=E501 --max-complexity 10"
 
 " ==========================================================
 " Vim-slime
@@ -98,7 +98,6 @@ let g:pyflakes_use_quickfix = 0
 let g:slime_python_ipython = 1
 let g:slime_target = "screen"
 let g:slime_paste_file = "$HOME/.slime_paste"
-
 
 " ==========================================================
 " VirtualEnv
@@ -113,6 +112,4 @@ if 'VIRTUAL_ENV' in os.environ:
     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
 EOF
-
-
 
