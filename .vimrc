@@ -130,5 +130,6 @@ endfunction
 
 " sets up mappings to function
 com! DiffSaved call DiffWithSaved()
-map <Leader>ds :DiffSaved<CR>
+noremap <F8> :DiffSaved<CR>
 
+noremap <F7> :!autopep8 --in-place %<CR>
