@@ -53,7 +53,6 @@ set foldlevel=99            " don't fold by default
 " ==========================================================
 " Python things
 " ==========================================================
-set textwidth=79  " lines longer than 79 columns will be broken
 
 " ==========================================================
 " Sudo write
