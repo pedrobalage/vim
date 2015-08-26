@@ -91,6 +91,8 @@ let g:jedi#popup_on_dot = 0
 " Syntastic
 " ==========================================================
 let g:syntastic_python_flake8_args = "--ignore=E501 --max-complexity 10"
+" fix ambigous use between Errors and Explorer. Set E to solve for Explorer 
+cmap E<CR> Ex<CR>
 
 " ==========================================================
 " Vim-slime
