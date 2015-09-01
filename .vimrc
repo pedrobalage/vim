@@ -53,6 +53,8 @@ set foldlevel=99            " don't fold by default
 " ==========================================================
 " Python things
 " ==========================================================
+" remove trailing whitespaces
+autocmd BufWritePre *.py :%s/\s\+$//e
 
 " ==========================================================
 " Sudo write
