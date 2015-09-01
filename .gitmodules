@@ -13,9 +13,6 @@
 [submodule "bundle/vim-nerdtree-tabs"]
 	path = bundle/vim-nerdtree-tabs
 	url = https://github.com/jistr/vim-nerdtree-tabs.git
-[submodule "bundle/jedi-vim"]
-	path = bundle/jedi-vim
-	url = git://github.com/davidhalter/jedi-vim.git
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = git://github.com/ervandew/supertab.git
