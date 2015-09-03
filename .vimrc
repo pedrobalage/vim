@@ -57,6 +57,12 @@ set foldlevel=99            " don't fold by default
 autocmd BufWritePre *.py :%s/\s\+$//e
 
 " ==========================================================
+" Vim things
+" ==========================================================
+" set the same clipboard across vim instances
+set clipboard=unnamed
+
+" ==========================================================
 " Sudo write
 " ==========================================================
 cmap W! w !sudo tee % >/dev/null
