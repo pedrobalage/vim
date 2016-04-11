@@ -106,10 +106,14 @@ cmap E<CR> Ex<CR>
 let g:slime_python_ipython = 1
 let g:slime_target = "screen"
 let g:slime_paste_file = "$HOME/.slime_paste"
+let g:slime_default_config = {"sessionname": "ipython", "windowname": "0"}
+let g:slime_dont_ask_default = 1
 
 " ==========================================================
 " VirtualEnv
 " ==========================================================
+
+" Vim for ubuntu 16.04 is compiled with python3
 python3 << EOF
 import os.path
 import sys
