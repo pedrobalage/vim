@@ -61,6 +61,8 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 " ==========================================================
 " set the same clipboard across vim instances
 set clipboard=unnamed
+" remap the leader key
+let mapleader=","
 
 " ==========================================================
 " Sudo write
