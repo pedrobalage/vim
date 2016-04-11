@@ -49,6 +49,9 @@ set showmatch               " Briefly jump to a paren once it's balanced
 set foldmethod=indent       " allow us to fold on indents
 set foldlevel=99            " don't fold by default
 
+" save fold states
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview 
 
 " ==========================================================
 " Python things
