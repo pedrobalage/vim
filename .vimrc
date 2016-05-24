@@ -115,6 +115,10 @@ let g:slime_paste_file = "$HOME/.slime_paste"
 let g:slime_default_config = {"sessionname": "ipython", "windowname": "0"}
 let g:slime_dont_ask_default = 1
 
+" ==========================================================
+" Ctrlp
+" ==========================================================
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " ==========================================================
 " DiffSaved
