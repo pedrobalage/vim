@@ -86,6 +86,16 @@ noremap <C-H> <Esc>:tabp<CR>
 noremap <C-L> <Esc>:tabn<CR>
 
 " ==========================================================
+" Python Powerline (Vim statusline)
+" ==========================================================
+" https://github.com/powerline/powerline
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+" show powerline in a single window
+set laststatus=2
+
+" ==========================================================
 " NERDTree
 " ==========================================================
 map <C-n> :NERDTreeTabsToggle<CR>
@@ -105,6 +115,8 @@ let g:jedi#use_splits_not_buffers = "bottom"
 let g:syntastic_python_flake8_args = "--ignore=E501,C901 --max-complexity 10"
 " fix ambigous use between Errors and Explorer. Set E to solve for Explorer 
 cmap E<CR> Ex<CR>
+" dont use pylint. It is slow...
+let g:loaded_syntastic_python_pylint_checker = 0
 
 " ==========================================================
 " Vim-slime
@@ -119,11 +131,6 @@ let g:slime_dont_ask_default = 1
 " Ctrlp
 " ==========================================================
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-" ==========================================================
-" Vim-airline (powerline)
-" ==========================================================
-let g:airline#extensions#tabline#enabled = 1
 
 " ==========================================================
 " DiffSaved
