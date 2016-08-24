@@ -86,6 +86,16 @@ noremap <C-H> <Esc>:tabp<CR>
 noremap <C-L> <Esc>:tabn<CR>
 
 " ==========================================================
+" Python Powerline (Vim statusline)
+" ==========================================================
+" https://github.com/powerline/powerline
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+" show powerline in a single window
+set laststatus=2
+
+" ==========================================================
 " NERDTree
 " ==========================================================
 map <C-n> :NERDTreeTabsToggle<CR>
@@ -119,11 +129,6 @@ let g:slime_dont_ask_default = 1
 " Ctrlp
 " ==========================================================
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-" ==========================================================
-" Vim-airline (powerline)
-" ==========================================================
-let g:airline#extensions#tabline#enabled = 1
 
 " ==========================================================
 " DiffSaved
