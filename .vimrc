@@ -99,6 +99,11 @@ python3 powerline_setup()
 python3 del powerline_setup
 " show powerline in a single window
 set laststatus=2
+" ==========================================================
+" Latex
+" ==========================================================
+let g:tex_flavor='latex'
+
 
 " ==========================================================
 " NERDTree
