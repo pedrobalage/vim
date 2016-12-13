@@ -1,6 +1,7 @@
 " ==========================================================
 " Pathogen
 " ==========================================================
+set nocompatible
 filetype off
 call pathogen#infect()
 call pathogen#helptags()
