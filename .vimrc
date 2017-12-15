@@ -163,7 +163,3 @@ com! DiffSaved call DiffWithSaved()
 noremap <F8> :DiffSaved<CR>
 
 noremap <F7> :!autopep8 --in-place %<CR>
-
-
-
-
